@@ -1,0 +1,125 @@
+$breakpoints: (
+  "xs-phone": 320px,
+  "phone": 480px,
+  "tablet": 768px,
+  "desktop": 1024px,
+  "widescreen": 1200px,
+);
+
+// keywords
+$media-expressions: (
+  "screen": "screen",
+  "print": "print",
+  "handheld": "handheld",
+  "landscape": "(orientation: landscape)",
+  "portrait": "(orientation: portrait)",
+  "retina2x": "(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dpi)",
+  "retina3x": "(-webkit-min-device-pixel-ratio: 2.5), (min-resolution: 240dpi)",
+);
+
+// ligatured operators ≥ ≤
+
+@import "vendors/include-media";
+@import "vendors/normalize";
+
+@import "base/variables";
+@import "base/functions";
+@import "base/mixins";
+@import "base/helpers";
+@import "base/reset";
+@import "base/typography";
+@import "base/forms";
+
+body {
+  @include media("<desktop") {
+    font-size: 14px;
+  }
+
+  @include media("<phone") {
+    font-size: 13px;
+  }
+}
+
+#wrapper {
+  overflow: hidden;
+  position: relative;
+  min-height: calc(100vh - 40px);
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 3px 5px 15px rgba($base-blue, 0.4);
+}
+main {
+  flex-grow: 1;
+  order: 2;
+  padding: 25px 45px;
+  height: 100%;
+}
+
+.contacts {
+  background: $base-blue;
+  width: 370px;
+  flex-shrink: 0;
+  padding: 35px 45px;
+  color: #fff;
+  height: 100%;
+
+  strong {
+    font-size: 21px;
+    display: block;
+    line-height: 1.4;
+
+    a {
+      font-size: 20px;
+    }
+  }
+
+  a {
+    color: #fff;
+  }
+
+  .social-list {
+    @extend %listreset;
+    padding: 10px 0 30px;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+
+    .blue-hover {
+      text-shadow: 0 0 0 #fff;
+
+      &:hover {
+        color: $light-blue;
+        text-shadow: 0 0 8px #fff;
+      }
+    }
+  }
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  .about {
+    margin-left: 7%;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+  p {
+    font-size: 20px;
+    margin: 0;
+  }
+  .photo {
+    background: #fff;
+    position: relative;
+    width: 410px;
+    border: solid $base-blue;
+    border-width: 45px 45px 45px 0;
+  }
+}
