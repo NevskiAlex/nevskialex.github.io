@@ -34,6 +34,7 @@ h3,
 .h3 {
   font-size: $h3-font-size;
   margin-bottom: 20px;
+  font-weight: 600;
 }
 
 h4,
@@ -52,7 +53,7 @@ h6,
 }
 
 p {
-  margin: 0 0 1em;
+  margin: 0 0 20px;
 }
 
 a {
@@ -61,4 +62,9 @@ a {
   &:focus {
     text-decoration: none;
   }
+}
+
+ul {
+  padding-left: 15px;
+  padding-bottom: 10px;
 }
