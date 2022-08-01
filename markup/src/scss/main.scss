@@ -32,8 +32,11 @@ $media-expressions: (
 @import "base/forms";
 
 body {
-  @include media("<phone", "print") {
+  @include media("<phone") {
     font-size: 15px;
+  }
+  @include media("print") {
+    font-size: 13px;
   }
 }
 
@@ -43,6 +46,7 @@ body {
   min-height: calc(100vh - 40px);
   display: flex;
   align-content: flex-start;
+  align-items: stretch;
   flex-wrap: wrap;
   margin: 20px auto;
   max-width: 1000px;
@@ -107,7 +111,7 @@ body {
 
     @include media("print") {
       border-width: 0;
-      width: 150px;
+      width: 140px;
     }
   }
 }
@@ -133,7 +137,7 @@ body {
 
   @include media("print") {
     width: 100%;
-    padding: 30px 30px 0;
+    padding: 20px 10px 0 20px;
     border: solid $base-blue;
     border-width: 1px 0 0 1px;
   }
@@ -142,6 +146,12 @@ body {
     padding: 0 0 10px;
     margin: 0 0 15px;
     border-bottom: 1px solid #eee;
+
+    @include media("print") {
+      padding: 0 0 5px;
+
+      margin-bottom: 10px;
+    }
     p {
       margin: 0 0 10px;
     }
@@ -160,9 +170,9 @@ body {
       }
 
       .job {
-        font-size: 20px;
+        font-size: 18px;
         @include media("<phone") {
-          font-size: 18px;
+          font-size: 17px;
         }
       }
 
@@ -188,20 +198,20 @@ body {
   padding: 0 30px 35px;
   color: #fff;
   height: 100%;
+
   @include media("<tablet") {
     width: 100%;
     padding: 20px 15px;
   }
   @include media("<phone") {
-    padding: 20px 15px;
     border: none;
   }
 
   @include media("print") {
     width: 100%;
     color: $base-blue;
-    padding-top: 30px;
     padding-bottom: 0;
+    padding-top: 5px;
     border-width: 0 0 0 1px;
     order: 3;
 
@@ -252,6 +262,7 @@ body {
       max-width: none;
       font-size: 18px;
       justify-content: space-around;
+      padding-bottom: 10px;
 
       a {
         color: $base-blue !important;
@@ -274,6 +285,9 @@ body {
   .location {
     font-size: 26px;
     line-height: 1;
+    @include media("print") {
+      font-size: 20px;
+    }
     i {
       font-size: 20px;
     }
@@ -282,6 +296,7 @@ body {
     @include media("print") {
       display: flex;
       flex-wrap: wrap;
+      margin: 0 5px;
     }
     @include media("<tablet") {
       display: flex;

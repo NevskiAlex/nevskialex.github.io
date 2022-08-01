@@ -33,25 +33,24 @@ h1,
   }
 
   @include media("print") {
-    font-size: 30px;
+    font-size: 28px;
   }
 }
 
 h2,
 .h2 {
   font-size: $h2-font-size;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   @include media("<tablet") {
     font-size: 26px;
-    margin: 0 0 15px;
   }
   @include media("<phone") {
     font-size: 23px;
   }
 
   @include media("print") {
-    font-size: 26px;
-    margin-bottom: 18px;
+    font-size: 21px;
+    margin-bottom: 10px;
   }
 }
 
@@ -66,6 +65,9 @@ h3,
     margin-bottom: 12px;
   }
   @include media("<phone") {
+    font-size: 20px;
+  }
+  @include media("print") {
     font-size: 20px;
   }
 }
