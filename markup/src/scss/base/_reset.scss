@@ -18,7 +18,7 @@ html {
 body {
   color: $base-text-color;
   background: $base-background-color;
-  font: #{$base-font-serif}/#{$line-height-base} $base-font-family;
+  font: #{$font-size-base}/#{$line-height-base} $base-font-sans-serif;
   min-width: $base-min-width;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

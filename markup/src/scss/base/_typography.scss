@@ -22,19 +22,52 @@ h6,
 h1,
 .h1 {
   font-size: $h1-font-size;
+  @include media("<desktop") {
+    font-size: 46px;
+  }
+  @include media("<tablet") {
+    font-size: 25px;
+  }
+  @include media("<phone") {
+    font-size: 20px;
+  }
+
+  @include media("print") {
+    font-size: 30px;
+  }
 }
 
 h2,
 .h2 {
   font-size: $h2-font-size;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  @include media("<tablet") {
+    font-size: 26px;
+    margin: 0 0 15px;
+  }
+  @include media("<phone") {
+    font-size: 23px;
+  }
+
+  @include media("print") {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
 }
 
 h3,
 .h3 {
   font-size: $h3-font-size;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: 600;
+
+  @include media("<tablet") {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+  @include media("<phone") {
+    font-size: 20px;
+  }
 }
 
 h4,
@@ -68,3 +101,9 @@ ul {
   padding-left: 15px;
   padding-bottom: 10px;
 }
+
+// @include media("print") {
+//   * {
+//     filter: grayscale(1);
+//   }
+// }

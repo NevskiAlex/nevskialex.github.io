@@ -10,13 +10,12 @@ $green: #01bf34;
 $light-blue: rgb(42, 138, 235);
 
 $base-font-sans-serif: "Arial", "Helvetica Neue", "Helvetica", sans-serif;
-$base-font-serif: "Roboto Mono", monospace;
 
 // Body
 $base-text-color: $base-blue !default;
 $base-background-color: $white !default;
-$font-size-base: 20px !default;
-$line-height-base: 1.2 !default;
+$font-size-base: 16px !default;
+$line-height-base: 1.25 !default;
 $base-font-family: $base-font-sans-serif !default;
 
 $vertical-rhythm: ($line-height-base * 1em);
@@ -40,7 +39,7 @@ $placeholder-color: $gray !default;
 
 // Headers
 $h1-font-size: 53px !default;
-$h2-font-size: 40px !default;
+$h2-font-size: 33px !default;
 $h3-font-size: 26px !default;
 $h4-font-size: 21px !default;
 $h5-font-size: 17px !default;

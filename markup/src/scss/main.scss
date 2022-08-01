@@ -32,12 +32,8 @@ $media-expressions: (
 @import "base/forms";
 
 body {
-  @include media("<desktop") {
-    font-size: 14px;
-  }
-
-  @include media("<phone") {
-    font-size: 13px;
+  @include media("<phone", "print") {
+    font-size: 15px;
   }
 }
 
@@ -52,21 +48,167 @@ body {
   max-width: 1000px;
   box-shadow: 3px 5px 15px rgba($base-blue, 0.4);
   transition: 0.3s box-shadow;
+
+  @include media("<tablet") {
+    display: block;
+    margin: 0;
+  }
 }
-main {
-  flex-grow: 1;
+
+.head {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  @include media("<tablet") {
+    padding: 0;
+  }
+  @include media("<phone") {
+    padding: 10px;
+  }
+
+  .about {
+    margin-left: 7%;
+    text-transform: uppercase;
+    @include media("<phone") {
+      margin-left: 20px;
+    }
+  }
+
+  p {
+    font-size: 20px;
+    margin: 0;
+
+    @include media("<tablet") {
+      font-size: 14px;
+    }
+    @include media("<phone") {
+      font-size: 12px;
+    }
+  }
+  .photo {
+    background: #fff;
+    position: relative;
+    width: 405px;
+    min-width: 370px;
+    border: solid $base-blue;
+    border-width: 40px 40px 40px 0;
+
+    @include media("<tablet") {
+      min-width: 1px;
+      border-width: 0 10px 0 0;
+      width: 170px;
+      padding-left: 10px;
+    }
+    @include media("<phone") {
+      width: 100px;
+      border: none;
+      padding: 0;
+    }
+
+    @include media("print") {
+      border-width: 0;
+      width: 150px;
+    }
+  }
+}
+
+#main {
+  width: calc(100% - 370px);
   order: 2;
   padding: 25px 45px;
-  height: 100%;
+
+  @include media("<desktop") {
+    padding: 25px;
+  }
+  @include media("<tablet") {
+    width: 100%;
+    border: solid $base-blue;
+    border-width: 0 0 0 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+  }
+  @include media("<phone") {
+    border: none;
+  }
+
+  @include media("print") {
+    width: 100%;
+    padding: 30px 30px 0;
+    border: solid $base-blue;
+    border-width: 1px 0 0 1px;
+  }
+
+  .description {
+    padding: 0 0 10px;
+    margin: 0 0 15px;
+    border-bottom: 1px solid #eee;
+    p {
+      margin: 0 0 10px;
+    }
+    .company {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      img {
+        max-width: 44px;
+        margin-right: 5px;
+        vertical-align: middle;
+      }
+
+      a {
+        font-size: 20px;
+      }
+
+      .job {
+        font-size: 20px;
+        @include media("<phone") {
+          font-size: 18px;
+        }
+      }
+
+      .date {
+        width: 100%;
+        font-size: 17px;
+        margin: 0 0 10px;
+        @include media("<phone") {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
 
 .contacts {
+  font-size: 15px;
+  border: 15px solid $base-blue;
+  border-width: 0 15px;
   background: $base-blue;
   width: 370px;
   flex-shrink: 0;
-  padding: 0 45px 20px;
+  padding: 0 30px 35px;
   color: #fff;
   height: 100%;
+  @include media("<tablet") {
+    width: 100%;
+    padding: 20px 15px;
+  }
+  @include media("<phone") {
+    padding: 20px 15px;
+    border: none;
+  }
+
+  @include media("print") {
+    width: 100%;
+    color: $base-blue;
+    padding-top: 30px;
+    padding-bottom: 0;
+    border-width: 0 0 0 1px;
+    order: 3;
+
+    a {
+      color: $base-blue;
+    }
+  }
 
   a {
     color: #fff;
@@ -74,10 +216,16 @@ main {
 
   .social-list {
     @extend %listreset;
-    padding: 0 0 50px;
+    padding: 0 0 30px;
     font-size: 22px;
     display: flex;
     justify-content: space-between;
+    max-width: 280px;
+
+    @include media("<phone") {
+      padding: 8px 0 26px;
+    }
+
     li {
       margin: 0;
     }
@@ -95,38 +243,60 @@ main {
         color: $green;
       }
     }
-  }
-  .location {
-    margin: 0 0 40px;
-    font-size: 26px;
-    line-height: 1;
-  }
-  ul {
-    li {
-      margin: 0 0 8px;
+
+    .for_print {
+      display: none;
+    }
+    @include media("print") {
+      display: flex;
+      max-width: none;
+      font-size: 18px;
+      justify-content: space-around;
+
+      a {
+        color: $base-blue !important;
+      }
+      i {
+        display: none;
+      }
+      .fa-phone,
+      .fa-skype,
+      .fa-at {
+        margin-right: 5px;
+        display: inline-block;
+      }
+      .for_print {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
-}
-
-.head {
-  display: flex;
-  align-items: center;
-  width: 100%;
-
-  .about {
-    margin-left: 7%;
-    text-transform: uppercase;
+  .location {
+    font-size: 26px;
+    line-height: 1;
+    i {
+      font-size: 20px;
+    }
   }
+  ul {
+    @include media("print") {
+      display: flex;
+      flex-wrap: wrap;
+    }
+    @include media("<tablet") {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-  p {
-    font-size: 20px;
-    margin: 0;
-  }
-  .photo {
-    background: #fff;
-    position: relative;
-    width: 410px;
-    border: solid $base-blue;
-    border-width: 45px 45px 45px 0;
+    li {
+      margin: 0 0 8px;
+
+      @include media("print") {
+        padding: 0 25px 0 0;
+      }
+      @include media("<tablet") {
+        padding: 0 25px 0 0;
+      }
+    }
   }
 }
