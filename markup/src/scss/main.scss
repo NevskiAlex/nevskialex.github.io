@@ -269,8 +269,9 @@ body {
     }
 
     .for_print {
-      display: none;
+      // display: none;
     }
+
     @include media("print") {
       display: flex;
       max-width: none;
