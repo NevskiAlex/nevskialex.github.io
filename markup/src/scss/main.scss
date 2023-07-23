@@ -1,3 +1,5 @@
+/** @format */
+
 $breakpoints: (
   "xs-phone": 320px,
   "phone": 480px,
@@ -37,6 +39,8 @@ body {
   }
   @include media("print") {
     font-size: 12px;
+  }
+  @include media("<widescreen") {
   }
 }
 
@@ -246,12 +250,35 @@ body {
     justify-content: space-between;
     max-width: 280px;
 
+    @include media("<tablet") {
+      display: block;
+      font-size: 18px;
+    }
+
     @include media("<phone") {
       padding: 8px 0 26px;
     }
 
     li {
       margin: 0;
+
+      @include media("<tablet") {
+        padding: 0 0 10px;
+      }
+    }
+
+    a {
+      @include media("<tablet") {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    i {
+      @include media("<tablet") {
+        margin-right: 15px;
+        font-size: 20px;
+      }
     }
 
     .blue-hover {
@@ -269,7 +296,11 @@ body {
     }
 
     .for_print {
-      // display: none;
+      display: none;
+
+      @include media("<tablet") {
+        display: inline-block;
+      }
     }
 
     @include media("print") {
